@@ -26,11 +26,17 @@ Node* createNode(int x){
     temp->left = temp->right = nullptr;
     return temp;
 };
+
+
 /////////////////////////////////////Constructor/////////////////////////////////////////////
 
 ariel::Tree::Tree(){
     this->_root=nullptr;
     this->Size=0;
+};
+
+ariel::Tree::~Tree(){
+    destruct(this->_root);
 };
 
 ///////////////////////////////////////////Tree methods///////////////////////////////////////////////////
@@ -68,7 +74,8 @@ void ariel::Tree::insert(int x){
                 }
             }
             else{
-               throw std::out_of_range{ "The number: is already exists..." };
+                destruct(temp);
+                throw std::out_of_range{ "The number: is already exists..." };
             }
         }
     }
@@ -103,11 +110,12 @@ void ariel::Tree::remove(int x){
         else{
             father->right = nullptr;
         }
+        destruct(current);
     }
 
     else if(current->left == nullptr){
         if(father == nullptr){
-            _root = current->left;
+            _root = current->right;
         }
         else if(x < father->value){
             father->left = current->right;
@@ -115,6 +123,7 @@ void ariel::Tree::remove(int x){
         else{
             father->right = current->right;
         }
+        destruct(current);
     }
 
     else if(current->right == nullptr){
@@ -127,6 +136,7 @@ void ariel::Tree::remove(int x){
         else{
             father->right = current->left;
         }
+        destruct(current);
     }
 
     else{
@@ -275,3 +285,11 @@ void ariel::Tree::print(){
         printBT("", _root, false);
     }
 };
+
+void ariel::Tree::destruct(Node * root){
+    if(root != nullptr){
+        destruct(root->left);
+        destruct(root->right);
+        delete(root);
+    }
+;}

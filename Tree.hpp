@@ -5,12 +5,13 @@ namespace ariel
 
     Node * _root;
     int Size;
+    int val = 0;
     
     public:
         Tree();
-       ~Tree(){
-           delete[] _root;
-        }
+       ~Tree();
+
+        void destruct(Node * root);
         void insert(int);
         void remove(int);
         int size();
@@ -19,6 +20,7 @@ namespace ariel
         int parent(int);
         int left(int);
         int right(int);
-        void print();      
-};
+        void print();   
+        void printVal();   
+    };
 }
