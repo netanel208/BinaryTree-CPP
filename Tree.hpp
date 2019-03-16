@@ -5,13 +5,11 @@ namespace ariel
 
     Node * _root;
     int Size;
-    int val = 0;
     
     public:
         Tree();
        ~Tree();
 
-        void destruct(Node * root);
         void insert(int);
         void remove(int);
         int size();
