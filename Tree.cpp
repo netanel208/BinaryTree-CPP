@@ -2,8 +2,7 @@
 #include <stdexcept>
 #include <iostream>
 
-//////////////////////////////////////Auxiliary functions///////////////////////////////////
-
+/////////////////////////////////////Auxiliary functions///////////////////////////////////
 
 void printBT(const std::string& prefix, const Node* treeRoot, bool isLeft){
     if( treeRoot != nullptr )
@@ -164,6 +163,7 @@ void ariel::Tree::remove(int x){
         int value = replace->value;
         while(replace->right != nullptr){
             replace = replace->right;
+            value = replace->value;
         }
         this->remove(replace->value);
         current->value = value;
@@ -228,6 +228,7 @@ int ariel::Tree::parent(int x){
     }
     return parent;
 };
+
 
 int ariel::Tree::left(int x){
     if(this->Size == 0){

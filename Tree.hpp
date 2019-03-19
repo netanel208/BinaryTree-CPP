@@ -18,7 +18,6 @@ namespace ariel
         int parent(int);
         int left(int);
         int right(int);
-        void print();   
-        void printVal();   
+        void print();     
     };
 }
