@@ -15,8 +15,8 @@ void printBT(const std::string& prefix, const Node* treeRoot, bool isLeft){
         std::cout << treeRoot->value << std::endl;
 
         // enter the next tree level - left and right branch
-        printBT( prefix + (isLeft ? "│   " : "    "), treeRoot->left, true);
-        printBT( prefix + (isLeft ? "│   " : "    "), treeRoot->right, false);
+        printBT( prefix + (isLeft ? "│   " : "    "), treeRoot->right, true);
+        printBT( prefix + (isLeft ? "│   " : "    "), treeRoot->left, false);
     }
 };
 
@@ -199,7 +199,7 @@ int ariel::Tree::parent(int x){
     if(this->Size == 0){
         throw std::out_of_range{"Tree is empty..."};
     }
-    if(this->Size == 1){
+    if(this->Size == 1 || this->_root->value == x){
         throw std::out_of_range{"This number is a root and doesn't have parents..."};
     }
 
