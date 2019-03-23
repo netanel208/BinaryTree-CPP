@@ -199,7 +199,7 @@ int ariel::Tree::parent(int x){
     if(this->Size == 0){
         throw std::out_of_range{"Tree is empty..."};
     }
-    if(this->Size == 1 || this->_root->value == x){
+    if( this->_root->value == x){
         throw std::out_of_range{"This number is a root and doesn't have parents..."};
     }
 
