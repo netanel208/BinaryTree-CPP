@@ -191,6 +191,9 @@ bool ariel::Tree::contains(int x){
 };
 
 int ariel::Tree::root(){
+    if(this->Size == 0){
+        throw std::out_of_range{"Tree is empty..."};
+    }
     return this->_root->value;
 };
 
