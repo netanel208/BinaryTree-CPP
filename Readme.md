@@ -1,2 +1,1 @@
-מגישים : נתנאל דוידוב 
-ומקסים מרמר
+Authors: Netanel Davidov, Maxim Marmer
